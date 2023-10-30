@@ -9,10 +9,18 @@
  */
 int check_cycle(listint_t *list)
 {
-	if (!list)
+	listint_t *tortoise = 0, *hare = 0;
+
+	if (!list || !list->next)
 		return (0);
 
-	return (_check_cycle(list->next, list->next->next));
+	tortoise = list->next;
+	hare = tortoise->next;
+
+	for (; tortoise && hare; tortoise = tortoise->next, hare = hare->next->next)
+		if (hare == tortoise)
+			return (1);
+	return (0);
 }
 
 /**

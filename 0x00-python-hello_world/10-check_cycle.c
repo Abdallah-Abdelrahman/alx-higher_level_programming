@@ -9,7 +9,7 @@
  */
 int check_cycle(listint_t *list)
 {
-	if (!list || !list->next)
+	if (!list)
 		return (0);
 
 	return (_check_cycle(list->next, list->next->next));

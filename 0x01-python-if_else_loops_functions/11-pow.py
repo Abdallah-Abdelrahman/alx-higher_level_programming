@@ -4,8 +4,6 @@ def pow(a, b):
     tmp = a
 
     if (b < 0):
-        a = 1 / a
-        tmp = a
         b = -b
     if (b == 0):
         return (1)
@@ -13,4 +11,4 @@ def pow(a, b):
     while (b):
         a *= tmp
         b -= 1
-    return (a)
+    return (a if b > 0 else 1 / a)

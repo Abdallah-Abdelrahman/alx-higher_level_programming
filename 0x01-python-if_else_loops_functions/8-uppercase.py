@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 
 def uppercase(str):
+    fmt = ''
+
     for i in range(len(str)):
         lower = str[i] >= 'a' and (str[i]) <= 'z'
-        print('{:c}'.format((ord(str[i]) - 32)) if lower else '{:s}'.format(str[i]), end='')
-    print()
+        if (lower):
+            fmt += '{:c}'.format(ord(str[i]))
+        else:
+            fmt += str[i]
+    print(fmt)

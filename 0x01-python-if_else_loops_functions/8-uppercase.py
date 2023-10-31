@@ -2,5 +2,5 @@
 
 def uppercase(str):
     for i in range(len(str)):
-        print('{C}'.format(i), end='')
+        print('{C}'.format(str[i]), end='')
     print()

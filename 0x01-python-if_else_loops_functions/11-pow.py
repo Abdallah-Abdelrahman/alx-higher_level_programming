@@ -2,6 +2,7 @@
 
 def pow(a, b):
     tmp = a
+    tmp2 = b
 
     if (b < 0):
         b = -b
@@ -11,4 +12,4 @@ def pow(a, b):
     while (b):
         a *= tmp
         b -= 1
-    return (a if b > 0 else 1 / a)
+    return (a if tmp2 >= 0 else 1 / a)

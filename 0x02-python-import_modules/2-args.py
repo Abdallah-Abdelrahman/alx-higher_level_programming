@@ -4,7 +4,7 @@ from sys import argv
 
 if __name__ == '__main__':
     length = len(argv)
-    suffix = 'argument' if length > 1 else 'arguments'
+    suffix = 'arguments' if length - 1 > 1 else 'argument'
 
     if (length - 1 == 0):
         print("0 arguments.")

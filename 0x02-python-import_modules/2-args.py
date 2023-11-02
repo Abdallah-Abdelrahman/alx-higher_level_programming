@@ -2,10 +2,10 @@
 
 from sys import argv
 
-length = len(argv)
-suffix = 'argument' if length > 1 else 'arguments'
-
 if __name__ == '__main__':
+    length = len(argv)
+    suffix = 'argument' if length > 1 else 'arguments'
+
     if (length - 1 == 0):
         print("0 arguments.")
     else:

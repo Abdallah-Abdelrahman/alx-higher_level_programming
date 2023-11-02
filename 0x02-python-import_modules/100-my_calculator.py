@@ -13,8 +13,8 @@ if (__name__ == '__main__'):
         print('Unknown operator. Available operators: +, -, * and /')
         exit(1)
     else:
-        a = argv[1]
-        b = argv[3]
+        a = int(argv[1])
+        b = int(argv[3])
         match argv[2]:
             case '+':
                 print('{:d} + {:d} = {:d}'.format(a, b, add(a, b)))

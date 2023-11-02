@@ -7,7 +7,7 @@ if (__name__ == '__main__'):
     length = len(argv)
 
     if (length - 1 != 3):
-        print('Usage: {:s} <a> <operator> <b>'.format(argv[0]))
+        print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         exit(1)
     elif (argv[2] not in ['+', '-', '/', '*']):
         print('Unknown operator. Available operators: +, -, * and /')
@@ -15,12 +15,13 @@ if (__name__ == '__main__'):
     else:
         a = int(argv[1])
         b = int(argv[3])
+
         match argv[2]:
             case '*':
-                print('{:d} * {:d} = {:d}'.format(a, b, mul(a, b)))
+                print('{} * {} = {}'.format(a, b, mul(a, b)))
             case '+':
-                print('{:d} + {:d} = {:d}'.format(a, b, add(a, b)))
+                print('{} + {} = {}'.format(a, b, add(a, b)))
             case '/':
-                print('{:d} / {:d} = {:d}'.format(a, b, div(a, b)))
+                print('{} / {} = {}'.format(a, b, div(a, b)))
             case '-':
-                print('{:d} - {:d} = {:d}'.format(a, b, sub(a, b)))
+                print('{} - {} = {}'.format(a, b, sub(a, b)))

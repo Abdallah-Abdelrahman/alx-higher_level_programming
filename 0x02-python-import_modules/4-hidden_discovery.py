@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-from dis import dis
+import hidden_4
 
 if (__name__ == '__main__'):
-    with open('hidden_4.pyc', 'rb') as file:
-        bytecode = file.read()
-    for str in dir(bytecode):
+    names = dir(hidden_4)
+    for str in names:
         if (str.startswith('__')):
             continue
         print(str)

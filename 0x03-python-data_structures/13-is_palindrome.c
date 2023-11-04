@@ -1,8 +1,5 @@
 #include "lists.h"
 
-listint_t *reverse_listint(listint_t **head);
-listint_t *reverse(listint_t *head);
-int _is_palindrome(listint_t *head, listint_t *tail);
 /**
  * is_palindrome - checks if a singly linked list is a palindrome.
  * @head: address of head
@@ -10,29 +7,39 @@ int _is_palindrome(listint_t *head, listint_t *tail);
  */
 int is_palindrome(listint_t **head)
 {
+	int len = 0;
 	listint_t *hare = *head;
 	listint_t *tortoise = *head;
-	int len = 0;
 
 	if (!*head)
 		return (1);
+
 	while (hare)
 	{
-		tortoise = tortoise->next;
 		if (hare->next)
+		{
+			/* shifting the len by 2 */
+			len += 2;
+			tortoise = tortoise->next;
 			hare = hare->next->next;
+		}
 		else
+		{
+			/* shifting the len by 1 */
 			hare = hare->next;
-		len += 2;
+			len++;
+		}
 	}
-	hare = reverse_listint(&tortoise->next);
+
+	hare = reverse_listint(len % 2 == 0 ? &tortoise : &tortoise->next);
 
 	return (_is_palindrome(*head, hare));
 }
 
 /**
- * is_palindrome - checks if a singly linked list is a palindrome.
- * @head: address of head
+ * _is_palindrome - checks if a singly linked list is a palindrome.
+ * @head1: address of 1st head
+ * @head2: address of 2nd head
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
 int _is_palindrome(listint_t *head1, listint_t *head2)

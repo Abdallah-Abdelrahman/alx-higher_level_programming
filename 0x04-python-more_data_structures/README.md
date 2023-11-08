@@ -71,3 +71,8 @@ each letter with a fixed integer value. Modern style uses only these seven:
 |---|---|---|---|---|---|---|
 | 1 | 5 |10 |50 |100|500|1000|
 </details>
+<hr />
+<details>
+<summary><b>100-weight_average</b></summary>
+python program that returns the weighted average of all integers tuple (<score>, <weight>)
+</details>

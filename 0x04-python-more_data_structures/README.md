@@ -49,3 +49,24 @@ python program that deletes a key in a dictionary.
 <summary><b>9-multiply_by_2</b></summary>
 python program that returns a new dictionary with all values multiplied by 2
 </details>
+<<hr />
+<details>
+<summary><b>10-best_score</b></summary>
+python program that returns a key with the biggest integer value.
+</details>
+<<hr />
+<details>
+<summary><b>11-multiply_list_map</b></summary>
+python program that returns a list with all values multiplied by a number without using any loops.
+</details>
+<<hr />
+<details>
+<summary><b>12-roman_to_int</b></summary>
+python program that converts a Roman numeral to an integer.
+Numbers are written with combinations of letters from the Latin alphabet,
+each letter with a fixed integer value. Modern style uses only these seven:
+
+| I | V | X | L | C | D | M |
+|---|---|---|---|---|---|---|
+| 1 | 5 |10 |50 |100|500|1000|
+</details>

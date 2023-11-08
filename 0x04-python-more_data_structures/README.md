@@ -25,3 +25,8 @@ python program that returns a set of common elements in two sets.
 <summary><b>4-only_diff_elements</b></summary>
 python program that returns a set of all elements present in only one set.
 </details>
+<hr />
+<details>
+<summary><b>5-number_keys</b></summary>
+python program that returns number of keys in a dictionary
+</details>

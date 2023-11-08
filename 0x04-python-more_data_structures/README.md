@@ -35,3 +35,8 @@ python program that returns number of keys in a dictionary
 <summary><b>6-print_sorted_dictionary</b></summary>
 python program that prints a dictionary by ordered keys.
 </details>
+<hr />
+<details>
+<summary><b>7-update_dictionary</b></summary>
+python program that replaces or adds key/value in a dictionary.
+</details>

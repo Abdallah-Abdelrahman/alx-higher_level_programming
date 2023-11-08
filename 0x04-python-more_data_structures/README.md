@@ -3,5 +3,11 @@ Another data structures in python `set` and `dictionarries`
 
 <details>
 <summary><b>0-square_matrix_simple</b></summary>
-Basic python program to that returns a new 2d matrix of each element squared
+python program to that returns a new 2d matrix of each element squared
+</details>
+<details>
+<hr>
+<details>
+<summary><b>1-search_replace</b></summary>
+python program that replaces all occurrences of an element by another in a new list.
 </details>

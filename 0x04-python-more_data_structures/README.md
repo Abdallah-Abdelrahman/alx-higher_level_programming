@@ -39,4 +39,8 @@ python program that prints a dictionary by ordered keys.
 <details>
 <summary><b>7-update_dictionary</b></summary>
 python program that replaces or adds key/value in a dictionary.
+<<hr />
+<details>
+<summary><b>8-simple_delete</b></summary>
+python program that deletes a key in a dictionary.
 </details>

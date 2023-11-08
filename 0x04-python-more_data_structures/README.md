@@ -39,30 +39,31 @@ python program that prints a dictionary by ordered keys.
 <details>
 <summary><b>7-update_dictionary</b></summary>
 python program that replaces or adds key/value in a dictionary.
-<<hr />
+</details>
+<hr />
 <details>
 <summary><b>8-simple_delete</b></summary>
 python program that deletes a key in a dictionary.
 </details>
-<<hr />
+<hr />
 <details>
 <summary><b>9-multiply_by_2</b></summary>
 python program that returns a new dictionary with all values multiplied by 2
 </details>
-<<hr />
+<hr />
 <details>
 <summary><b>10-best_score</b></summary>
 python program that returns a key with the biggest integer value.
 </details>
-<<hr />
+<hr />
 <details>
 <summary><b>11-multiply_list_map</b></summary>
 python program that returns a list with all values multiplied by a number without using any loops.
 </details>
-<<hr />
+<hr />
 <details>
 <summary><b>12-roman_to_int</b></summary>
-python program that converts a Roman numeral to an integer.
+python program that converts a Roman numeral to an integer.<br />
 Numbers are written with combinations of letters from the Latin alphabet,
 each letter with a fixed integer value. Modern style uses only these seven:
 

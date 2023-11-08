@@ -81,3 +81,8 @@ python program that returns the weighted average of all integers tuple (<score>,
 <summary><b>101-square_matrix_map</b></summary>
 python program that computes the square value of all integers of a matrix using map
 </details>
+<hr />
+<details>
+<summary><b>102-complex_delete</b></summary>
+python program that deletes keys with a specific value in a dictionary.
+</details>

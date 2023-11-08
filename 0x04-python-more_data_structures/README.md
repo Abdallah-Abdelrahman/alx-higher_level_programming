@@ -76,3 +76,8 @@ each letter with a fixed integer value. Modern style uses only these seven:
 <summary><b>100-weight_average</b></summary>
 python program that returns the weighted average of all integers tuple (<score>, <weight>)
 </details>
+<hr />
+<details>
+<summary><b>101-square_matrix_map</b></summary>
+python program that computes the square value of all integers of a matrix using map
+</details>

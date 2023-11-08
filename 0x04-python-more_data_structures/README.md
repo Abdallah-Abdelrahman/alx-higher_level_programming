@@ -30,3 +30,8 @@ python program that returns a set of all elements present in only one set.
 <summary><b>5-number_keys</b></summary>
 python program that returns number of keys in a dictionary
 </details>
+<hr />
+<details>
+<summary><b>6-print_sorted_dictionary</b></summary>
+python program that prints a dictionary by ordered keys.
+</details>

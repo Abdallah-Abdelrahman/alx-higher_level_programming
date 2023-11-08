@@ -15,3 +15,8 @@ python program that replaces all occurrences of an element by another in a new l
 <summary><b>2-uniq_add</b></summary>
 python program that adds all unique integers in a list (only once for each integer).
 </details>
+<hr />
+<details>
+<summary><b>3-common_elements</b></summary>
+python program that returns a set of common elements in two sets.
+</details>

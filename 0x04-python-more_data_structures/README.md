@@ -44,3 +44,8 @@ python program that replaces or adds key/value in a dictionary.
 <summary><b>8-simple_delete</b></summary>
 python program that deletes a key in a dictionary.
 </details>
+<<hr />
+<details>
+<summary><b>9-multiply_by_2</b></summary>
+python program that returns a new dictionary with all values multiplied by 2
+</details>

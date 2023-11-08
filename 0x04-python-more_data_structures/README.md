@@ -20,3 +20,8 @@ python program that adds all unique integers in a list (only once for each integ
 <summary><b>3-common_elements</b></summary>
 python program that returns a set of common elements in two sets.
 </details>
+<hr />
+<details>
+<summary><b>4-only_diff_elements</b></summary>
+python program that returns a set of all elements present in only one set.
+</details>

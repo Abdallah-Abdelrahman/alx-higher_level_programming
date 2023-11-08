@@ -10,3 +10,8 @@ python program to that returns a new 2d matrix of each element squared
 <summary><b>1-search_replace</b></summary>
 python program that replaces all occurrences of an element by another in a new list.
 </details>
+<hr />
+<details>
+<summary><b>2-uniq_add</b></summary>
+python program that adds all unique integers in a list (only once for each integer).
+</details>

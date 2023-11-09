@@ -1,4 +1,4 @@
-#include "Python.h"
+#include "python3.10/Python.h"
 
 void print_python_bytes(PyObject *p);
 
@@ -50,14 +50,10 @@ void print_python_bytes(PyObject *p)
 	printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);
 
 	for (i = 0; i < (size > 10 ? 9 : size); i++)
-	{
 		/**
 		 * if ascii is negative we apply bit-wise manipulation,
 		 * to extarct the least 2 significant bits
 		 */
-		printf("%02x\x20",
-				py_bytes->ob_sval[i] > 0
-				? py_bytes->ob_sval[i] : py_bytes->ob_sval[i] & 0xff);
-	}
+		printf("%02x\x20", py_bytes->ob_sval[i] & 0xff);
 	printf("%02x\n", py_bytes->ob_sval[i]);
 }

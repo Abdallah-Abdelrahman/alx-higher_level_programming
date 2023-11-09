@@ -86,3 +86,8 @@ python program that computes the square value of all integers of a matrix using 
 <summary><b>102-complex_delete</b></summary>
 python program that deletes keys with a specific value in a dictionary.
 </details>
+<hr />
+<details>
+<summary><b>103-python.c</b></summary>
+c program that extracts information about that print some basic info about Python lists and Python bytes objects.
+</details>

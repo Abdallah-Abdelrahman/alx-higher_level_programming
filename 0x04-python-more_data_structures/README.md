@@ -106,7 +106,7 @@ typedef struct {
 } PyBytesObject;
 
 ```
-- 'PyListObject' :
+- `PyListObject` :
 ```
 typedef struct {
     PyObject_VAR_HEAD
@@ -126,5 +126,18 @@ typedef struct {
      */
     Py_ssize_t allocated;
 } PyListObject;
+```
+__*Both of the above objects inherits from `PyObject`*__ : <br />
+```
+/* Nothing is actually declared to be a PyObject, but every pointer to
+ * a Python object can be cast to a PyObject*.  This is inheritance built
+ * by hand.  Similarly every pointer to a variable-size Python object can,
+ * in addition, be cast to PyVarObject*.
+ */
+typedef struct _object {
+    _PyObject_HEAD_EXTRA
+    Py_ssize_t ob_refcnt;
+    PyTypeObject *ob_type;
+} PyObject;
 ```
 </details>

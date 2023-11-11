@@ -1,5 +1,5 @@
 # More Data Structures: Set, Dictionary
-Another data structures in python `set` and `dictionaries`
+Another data structures in python `set` and `dictionaries` project, each file represents separate task
 
 <details>
 <summary><b>0-square_matrix_simple</b></summary>

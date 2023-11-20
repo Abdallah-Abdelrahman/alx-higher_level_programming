@@ -14,6 +14,7 @@ void print_python_list(PyObject *p)
 	{
 		list = (PyListObject *)p;
 
+		fflush(stdout);
 		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %ld\n", list->ob_base.ob_size);
 		printf("[*] Allocated = %ld\n", list->allocated);
@@ -36,6 +37,7 @@ void print_python_bytes(PyObject *p)
 	PyBytesObject *py_bytes = (PyBytesObject *)p;
 	size_t i = 0, size = py_bytes->ob_base.ob_size;
 
+	fflush(stdout);
 	printf("[.] bytes object info\n");
 
 	if (size == 1)

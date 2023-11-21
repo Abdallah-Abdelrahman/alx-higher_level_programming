@@ -12,7 +12,6 @@ void print_python_list(PyObject *p)
 	int i = 0;
 	PyListObject *list;
 
-	fflush(stdout);
 	if (PyList_Check(p))
 	{
 		list = (PyListObject *)p;
@@ -21,7 +20,6 @@ void print_python_list(PyObject *p)
 		printf("[*] Size of the Python List = %ld\n", list->ob_base.ob_size);
 		printf("[*] Allocated = %ld\n", list->allocated);
 
-		fflush(stdout);
 		for (i = 0; i < list->ob_base.ob_size; i++)
 		{
 			printf("Element %d: %s\n", i, list->ob_item[i]->ob_type->tp_name);
@@ -36,7 +34,6 @@ void print_python_list(PyObject *p)
 		printf("[*] Python list info\n");
 		printf("  [ERROR] Invalid List Object\n");
 	}
-	fflush(stdout);
 }
 
 /**
@@ -51,7 +48,6 @@ void print_python_bytes(PyObject *p)
 
 	 is_hol = !strcmp(py_bytes->ob_sval, "School");
 
-	fflush(stdout);
 	printf("[.] bytes object info\n");
 
 	if (size == 1)
@@ -79,7 +75,6 @@ void print_python_bytes(PyObject *p)
 	for (i = 0; school[i]; i++)
 		printf("%02x\x20", school[i] & 0xff);
 	printf("%02x\n", school[i]);
-	fflush(stdout);
 }
 
 /**
@@ -91,7 +86,6 @@ void print_python_float(PyObject *p)
 	PyFloatObject *py_float = (PyFloatObject *)p;
 	char *_double;
 
-	fflush(stdout);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(py_float))
 	{
@@ -101,6 +95,5 @@ void print_python_float(PyObject *p)
 	_double =
 		PyOS_double_to_string(py_float->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("\x20\x20value: %s\n", _double);
-	fflush(stdout);
 	PyMem_Free(_double);
 }

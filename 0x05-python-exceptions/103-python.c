@@ -2,7 +2,7 @@
 
 void print_python_float(PyObject *p);
 void print_python_bytes(PyObject *p);
-
+/*TODO: fflush */
 /**
  * print_python_list - print some basic info about Python lists object
  * @p: python object
@@ -28,6 +28,7 @@ void print_python_list(PyObject *p)
 			if (!strcmp(list->ob_item[i]->ob_type->tp_name, "float"))
 				print_python_float(list->ob_item[i]);
 		}
+		fflush(stdout);
 	}
 	else
 	{
@@ -74,6 +75,7 @@ void print_python_bytes(PyObject *p)
 	for (i = 0; school[i]; i++)
 		printf("%02x\x20", school[i] & 0xff);
 	printf("%02x\n", school[i]);
+	fflush(stdout);
 }
 
 /**
@@ -95,4 +97,5 @@ void print_python_float(PyObject *p)
 		PyOS_double_to_string(py_float->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("\x20\x20value: %s\n", _double);
 	PyMem_Free(_double);
+	fflush(stdout);
 }

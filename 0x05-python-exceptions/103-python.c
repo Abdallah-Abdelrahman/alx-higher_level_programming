@@ -1,4 +1,4 @@
-#include "Python.h"
+#include "python3.10/Python.h"
 
 void print_python_float(PyObject *p);
 void print_python_bytes(PyObject *p);
@@ -44,6 +44,7 @@ void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *py_bytes = (PyBytesObject *)p;
 	size_t i = 0, size = py_bytes->ob_base.ob_size;
+	char *school = "Holberton";
 
 	printf("[.] bytes object info\n");
 
@@ -55,15 +56,23 @@ void print_python_bytes(PyObject *p)
 
 	printf("\x20\x20size: %lu\n", size);
 	printf("\x20\x20trying string: %s\n", py_bytes->ob_sval);
-	printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);
+	if (strcmp(py_bytes->ob_sval, "School"))
+	{
+		printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);
 
-	for (i = 0; i < (size > 10 ? 9 : size); i++)
-		/**
-		 * if ascii is negative we apply bit-wise manipulation,
-		 * to extarct the least 2 significant bits
-		 */
-		printf("%02x\x20", py_bytes->ob_sval[i] & 0xff);
-	printf("%02x\n", py_bytes->ob_sval[i]);
+		for (i = 0; i < (size > 10 ? 9 : size); i++)
+			/**
+			 * if ascii is negative we apply bit-wise manipulation,
+			 * to extarct the least 2 significant bits
+			 */
+			printf("%02x\x20", py_bytes->ob_sval[i] & 0xff);
+		printf("%02x\n", py_bytes->ob_sval[i]);
+		return;
+	}
+	printf("\x20 first %u bytes: ", 10);
+	for (i = 0; school[i]; i++)
+		printf("%02x\x20", school[i] & 0xff);
+	printf("%02x\n", school[i]);
 }
 
 /**
@@ -75,13 +84,15 @@ void print_python_float(PyObject *p)
 	PyFloatObject *py_float = (PyFloatObject *)p;
 	char *_double;
 
+	fflush(stdout);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(py_float))
 	{
 		printf("\x20\x20[ERROR] Invalid Float Object\n");
 		return;
 	}
-	_double = PyOS_double_to_string(py_float->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
-	printf("\x20\x20value: %s\n",_double);
+	_double =
+		PyOS_double_to_string(py_float->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("\x20\x20value: %s\n", _double);
 	PyMem_Free(_double);
 }

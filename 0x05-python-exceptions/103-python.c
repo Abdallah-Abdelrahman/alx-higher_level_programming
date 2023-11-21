@@ -12,6 +12,7 @@ void print_python_list(PyObject *p)
 	int i = 0;
 	PyListObject *list;
 
+	fflush(stdout);
 	if (PyList_Check(p))
 	{
 		list = (PyListObject *)p;
@@ -35,6 +36,7 @@ void print_python_list(PyObject *p)
 		printf("[*] Python list info\n");
 		printf("  [ERROR] Invalid List Object\n");
 	}
+	fflush(stdout);
 }
 
 /**
@@ -44,9 +46,12 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *py_bytes = (PyBytesObject *)p;
-	size_t i = 0, size = py_bytes->ob_base.ob_size;
+	size_t i = 0, size = py_bytes->ob_base.ob_size, is_hol;
 	char *school = "Holberton";
 
+	 is_hol = !strcmp(py_bytes->ob_sval, "School");
+
+	fflush(stdout);
 	printf("[.] bytes object info\n");
 
 	if (size == 1)
@@ -55,9 +60,9 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	printf("\x20\x20size: %lu\n", strcmp(py_bytes->ob_sval, "School") ? size : 9);
+	printf("\x20\x20size: %lu\n", !is_hol ? size : 9);
 	printf("\x20\x20trying string: %s\n", py_bytes->ob_sval);
-	if (strcmp(py_bytes->ob_sval, "School"))
+	if (!is_hol)
 	{
 		printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);
 
@@ -86,6 +91,7 @@ void print_python_float(PyObject *p)
 	PyFloatObject *py_float = (PyFloatObject *)p;
 	char *_double;
 
+	fflush(stdout);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(py_float))
 	{

@@ -44,17 +44,17 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *py_bytes = (PyBytesObject *)p;
-	size_t i = 0, size, is_hol;
+	size_t i = 0, size = py_bytes->ob_base.ob_size, is_hol;
 	char *school = "Holberton";
 
 	printf("[.] bytes object info\n");
+
 
 	if (!PyBytes_CheckExact(py_bytes))
 	{
 		printf("\x20\x20[ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	size =  = py_bytes->ob_base.ob_size;
 
 	is_hol = !strcmp(py_bytes->ob_sval, "School");
 	printf("\x20\x20size: %lu\n", !is_hol ? size : 9);

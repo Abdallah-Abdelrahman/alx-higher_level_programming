@@ -2,7 +2,7 @@
 
 void print_python_float(PyObject *p);
 void print_python_bytes(PyObject *p);
-/*TODO: fflush */
+
 /**
  * print_python_list - print some basic info about Python lists object
  * @p: python object
@@ -49,7 +49,8 @@ void print_python_bytes(PyObject *p)
 
 	printf("[.] bytes object info\n");
 
-	if (size == 1)
+
+	if (!PyBytes_CheckExact(py_bytes))
 	{
 		printf("\x20\x20[ERROR] Invalid Bytes Object\n");
 		return;

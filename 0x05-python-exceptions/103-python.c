@@ -61,12 +61,12 @@ void print_python_bytes(PyObject *p)
 	}
 
 	printf("\x20\x20size: %lu\n", !is_hol ? size : 9);
-	printf("\x20\x20trying string: %s\n", !is_hol ? py_bytes->ob_sval : school);
+	printf("\x20\x20trying string: %s\n", py_bytes->ob_sval);
 	if (!is_hol)
 	{
-		printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);
+		printf("\x20 first %lu bytes: ", size >= 10 ? 10 : size + 1);
 
-		for (i = 0; i < (size > 10 ? 9 : size); i++)
+		for (i = 0; i < (size >= 10 ? 9 : size); i++)
 			/**
 			 * if ascii is negative we apply bit-wise manipulation,
 			 * to extarct the least 2 significant bits

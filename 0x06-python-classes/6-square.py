@@ -20,8 +20,8 @@ class Square:
                 of 2 positive int.
         """
 
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def my_print(self):
         """Print the sqaure."""
@@ -31,10 +31,10 @@ class Square:
             return
         for _ in range(self.__position[1]):
             print()
-        for i in range(self.__size):
-            for k in range((self.__position[0])):
+        for _ in range(self.__size):
+            for _ in range((self.__position[0])):
                 print(' ', end='')
-            for j in range(self.__size):
+            for _ in range(self.__size):
                 print('#', end='')
             print()
 

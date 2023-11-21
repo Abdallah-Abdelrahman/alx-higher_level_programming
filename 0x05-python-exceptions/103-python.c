@@ -61,7 +61,7 @@ void print_python_bytes(PyObject *p)
 	}
 
 	printf("\x20\x20size: %lu\n", !is_hol ? size : 9);
-	printf("\x20\x20trying string: %s\n", py_bytes->ob_sval);
+	printf("\x20\x20trying string: %s\n", !is_hol ? py_bytes->ob_sval : school);
 	if (!is_hol)
 	{
 		printf("\x20 first %lu bytes: ", size > 10 ? 10 : size + 1);

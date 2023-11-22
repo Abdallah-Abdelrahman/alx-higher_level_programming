@@ -81,7 +81,7 @@ class Square:
     def __repr__(self):
         """Print Sqaure"""
         if (not self.__size):
-            print()
+            # print()
             return ''
         for _ in range(self.__position[1]):
             print()

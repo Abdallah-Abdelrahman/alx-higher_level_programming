@@ -46,7 +46,6 @@ class Square:
         """ rich comparison ``x <= y``."""
         return self.area() <= others.area()
 
-
     def area(self):
         """Calculate the area.
 

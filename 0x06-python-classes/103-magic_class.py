@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import math
-
 
 """ module defines ``MagicClass``"""
 
@@ -16,8 +14,8 @@ class MagicClass:
 
     def area(self):
         """area."""
-        return self.__radius ** 2 * math.pi
+        return self.__radius ** 2 * __import__('math').pi
 
     def circumference(self):
         """ circumference."""
-        return math.pi * 2 * self.__radius
+        return __import__('math').pi * 2 * self.__radius

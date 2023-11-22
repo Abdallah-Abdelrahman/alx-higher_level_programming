@@ -20,7 +20,7 @@ class Square:
             TypeError: it's not int
         """
 
-        self.__size = size
+        self.size = size
 
     def area(self):
         """Calculate the area.

@@ -4,5 +4,6 @@ Working with OOP the pythonic way
 
 <details>
 <summary><b>0-square</b></summary>
-Define an empty class <!-- `Square` -->
+Define an empty class <code>Square</code>
+  
 </details>

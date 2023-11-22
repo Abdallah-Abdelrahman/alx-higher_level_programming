@@ -2,6 +2,9 @@
 import math
 
 
+""" module defines ``MagicClass``"""
+
+
 class MagicClass:
     """ magic"""
     def __init__(self, radius):

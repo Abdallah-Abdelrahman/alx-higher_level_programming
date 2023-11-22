@@ -82,7 +82,7 @@ class Square:
         """Print Sqaure"""
         if (not self.__size):
             print()
-            return
+            return ''
         for _ in range(self.__position[1]):
             print()
         for i in range(self.__size):
@@ -92,3 +92,10 @@ class Square:
                 print('#', end='')
             print(end=('', '\n')[i < self.__size - 1])
         return ''
+my_square = Square(5, (0, 0))
+print(my_square)
+
+print("--")
+
+my_square = Square(5, (4, 1))
+print(my_square)

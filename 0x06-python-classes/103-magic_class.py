@@ -5,7 +5,7 @@
 
 class MagicClass:
     """ magic"""
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """Initialize instance"""
         self.__radius = 0
         if (type(radius) not in (int, float)):

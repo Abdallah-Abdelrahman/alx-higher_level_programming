@@ -78,22 +78,16 @@ class Square:
             raise ValueError('size must be >= 0')
         self.__size = size
 
-    def __repr__(self):
-        """Print Sqaure."""
-        _str = []
-        if (not self.__size):
-            # print()
-            return ''
-        for _ in range(self.__position[1]):
-            # print()
-            _str.append('\n')
-        for _ in range(self.__size):
-            for _ in range((self.__position[0])):
-                # print(' ', end='')
-                _str.append(' ')
-            for _ in range(self.__size):
-                _str.append('#')
-                # print('#', end='')
-            _str.append(('\n', '')[_ < self.__size - 1])
-            # print()
-        return ''.join(_str)
+    def __str__(self):
+        """Print string values"""
+        lst = []
+        x = self.__size
+        y = self.__position
+        if (x == 0):
+            return ""
+        else:
+            if (y[1] > 0):
+                lst.append("\n" * (y[1] - 1))
+            for _ in range(x):
+                lst.append(" " * y[0] + "#" * x)
+        return "\n".join(lst)

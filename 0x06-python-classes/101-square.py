@@ -92,10 +92,3 @@ class Square:
                 print('#', end='')
             print(end=('', '\n')[i < self.__size - 1])
         return ''
-my_square = Square(5, (0, 0))
-print(my_square)
-
-print("--")
-
-my_square = Square(5, (4, 1))
-print(my_square)

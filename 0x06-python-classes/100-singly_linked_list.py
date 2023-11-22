@@ -16,8 +16,8 @@ class Node:
         Raises:
             TypeError: data is not integer or next_node is not None or Node
         """
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
@@ -39,6 +39,47 @@ class Node:
     @next_node.setter
     def next_node(self, next_node):
         """Set next_node."""
-        if not isinstance(next_node, Node) or next_node is not None:
-            raise TypeError('next_node must be a Node object')
-        self.__next_node = next_node
+        if next_node is None or isinstance(next_node, Node):
+            self.__next_node = next_node
+            return
+        raise TypeError('next_node must be a Node object')
+
+
+class SinglyLinkedList:
+    """ defines a singly linked list class."""
+
+    def __init__(self):
+        """Initialize the instance."""
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """inserts a new Node.
+        Add into the correct sorted position in the list (increasing order)
+        """
+
+        if (not self.__head or value < self.__head.data):
+            new_node = Node(value, self.__head)
+            self.__head = new_node
+            return
+
+        # value is greater than head.data
+        tmp = self.__head
+        while tmp:
+            if (tmp.next_node):
+                if (value > tmp.data and value > tmp.next_node.data):
+                    tmp = tmp.next_node
+                else:
+                    tmp.next_node = Node(value, tmp.next_node)
+                    break
+            else:
+                tmp.next_node = Node(value, None)
+                break
+
+    def __repr__(self):
+        """Print list data in ascending order."""
+        tmp = self.__head
+        while (tmp):
+            print(tmp.data, end='' if not tmp.next_node else '\n')
+#            print(tmp.data, end=('', '\n')[tmp.next_node is not None])
+            tmp = tmp.next_node
+        return ''

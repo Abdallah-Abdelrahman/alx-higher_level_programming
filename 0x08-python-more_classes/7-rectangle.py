@@ -8,9 +8,11 @@ class Rectangle:
 
     Attributes:
         number_of_instances: integer
+        print_symbol: symbole to print
     """
 
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """Initialize the instance
@@ -72,7 +74,8 @@ class Rectangle:
         if (not self.width or not self.height):
             return _str
         for i in range(self.height):
-            _str += '#' * self.width + ('', '\n')[i < self.height - 1]
+            _str += str(self.print_symbol) * self.width\
+                    + ('', '\n')[i < self.height - 1]
         return _str
 
     def __repr__(self):

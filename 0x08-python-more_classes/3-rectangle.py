@@ -48,3 +48,22 @@ class Rectangle:
         if height < 0:
             raise ValueError('height must be >= 0')
         self.__height = height
+
+    def area(self):
+        """Calculate the distance inside"""
+        return self.width * self.height
+
+    def perimeter(self):
+        """The distance all the way around the outside"""
+        return 2 * (self.width + self.height)\
+            if self.width and self.height\
+            else 0
+
+    def __str__(self):
+        """Print ``Rectangle``"""
+        _str = ''
+        if (not self.width or not self.height):
+            return _str
+        for i in range(self.height):
+            _str += '#' * self.width + ('', '\n')[i < self.height - 1]
+        return _str

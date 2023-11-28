@@ -25,6 +25,22 @@ for i in argv[1]:
         exit(1)
 
 num = int(argv[1])
+
 if int(num) < 4:
     print('N must be at least 4')
     exit(1)
+
+
+def queens(n, i, a, b, c):
+    """solve N queen using backtrack algorithm"""
+
+    if i < n:
+        for j in range(n):
+            if j not in a and i+j not in b and i-j not in c:
+                yield from queens(n, i+1, a+[j], b+[i+j], c+[i-j])
+    else:
+        yield a
+
+
+for solution in queens(num, 0, [], [], []):
+    print([[row, col] for row, col in enumerate(solution)])

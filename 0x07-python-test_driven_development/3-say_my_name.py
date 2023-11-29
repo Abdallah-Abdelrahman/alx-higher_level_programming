@@ -4,7 +4,7 @@
 
 
 def say_my_name(first_name, last_name=""):
-    """Prints full name.
+    """Ouputs full name.
 
     Args:
         first_name: string

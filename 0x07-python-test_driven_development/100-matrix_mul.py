@@ -22,6 +22,8 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_b can't be empty")
 
     for k, _ in enumerate(m_a):
+        if _len_a != len(m_b[k]):
+            raise ValueError("m_a and m_b can't be multiplied")
         if not isinstance(m_a[k], list):
             raise TypeError('m_a must be a list of lists')
         if not m_a[k]:

@@ -20,8 +20,6 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_a can't be empty")
     if _len_b == 0 or m_a[0] != 0 and not (m_b[0]):
         raise ValueError("m_b can't be empty")
-    if len(m_a[0]) != _len_b:
-        raise ValueError("m_a and m_b can't be multiplied")
 
     for k, _ in enumerate(m_a):
         if not isinstance(m_a[k], list):
@@ -30,8 +28,9 @@ def matrix_mul(m_a, m_b):
             raise ValueError("m_a can't be empty")
         if not isinstance(m_b[k], list):
             raise TypeError('m_b must be a list of lists')
-        if k and len(m_a[k]) != len(m_a[k - 1]):
-            raise TypeError('each row of m_a must be of the same size')
+        for i, _ in enumerate(m_a):
+            if i and len(m_a[i]) != len(m_a[i - 1]):
+                raise TypeError('each row of m_a must be of the same size')
 
         m_c.append([])
         for i, _ in enumerate(m_b[k]):
@@ -49,5 +48,8 @@ def matrix_mul(m_a, m_b):
                     raise TypeError(err_type_b)
                 _sum += m_a[k][j] * m_b[j][i]
             m_c[k].append(_sum)
+
+    if len(m_a[0]) != _len_b:
+        raise ValueError("m_a and m_b can't be multiplied")
 
     return m_c

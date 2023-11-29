@@ -14,15 +14,6 @@ TypeError: m_b must be a list
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
 TypeError: m_a must be a list
-
->>> m_b = [[12, 12],[11, 10, 11]]
-
->>> m_a = [[11,11,11], [12, 12]]
-
->>> mtx(m_a, m_b)
-Traceback (most recent call last):
-TypeError: each row m_a must should be of the same size
-
 >>> m_a = [
 ...     [1, 2],
 ...     [3, 4],

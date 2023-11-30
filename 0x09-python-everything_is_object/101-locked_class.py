@@ -4,8 +4,9 @@
 
 
 class LockedClass:
-    """Define only __setattr__"""
-    def __setattr__(self, name, value):
-        """Only setting attr if name 'first_name'"""
-        if name == 'first_name':
-            name = value
+    """using ``__slots__ to prevent setting unwanted attr.
+
+    Attributes:
+        __slots__: Only listed attributes will be allowed for instance
+    """
+    __slots__ = ['first_name']

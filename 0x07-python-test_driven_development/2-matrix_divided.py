@@ -23,6 +23,7 @@ def matrix_divided(matrix, div):
             `div` is not a number (int or float).
         ZeroDivisionError: `div` equals to zero.
     """
+    err = 'matrix must be a matrix (list of lists) of integers/floats'
 
     new_matrix = []
 
@@ -31,20 +32,17 @@ def matrix_divided(matrix, div):
     if (div == 0):
         raise ZeroDivisionError('division by zero')
     if not matrix or not isinstance(matrix, list):
-        raise TypeError('matrix must be a matrix\
-                (list of lists) of integers/floats')
+        raise TypeError(err)
 
     for i, row in enumerate(matrix):
         if i and len(matrix[i]) != len(matrix[i - 1]):
             raise TypeError('Each row of the matrix must have the same size')
         if not isinstance(row, list):
-            raise TypeError('matrix must be a matrix\
-                    (list of lists) of integers/floats')
+            raise TypeError(err)
         new_matrix.append([])
         for col in row:
             if not isinstance(col, (int, float)):
-                raise TypeError('matrix must be a matrix\
-                        (list of lists) of integers/floats')
+                raise TypeError(err)
             new_matrix[i].append(round(col / div, 2))
 
     return new_matrix

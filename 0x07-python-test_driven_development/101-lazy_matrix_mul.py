@@ -39,4 +39,4 @@ def lazy_matrix_mul(m_a, m_b):
             if not isinstance(m_a[j][k], (int, float)):
                 raise TypeError(err_type_b)
 
-    return np.dot(m_a, m_b)
+    return np.matmul(m_a, m_b)

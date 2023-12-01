@@ -8,6 +8,11 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """Test max_integer function."""
 
+    def test_max_in_middle(self):
+        """Test max in middle"""
+
+        self.assertEqual(max_integer([1, 3, 2]), 3)
+
     def test_emptylist(self):
         """Test empty list"""
 
@@ -24,7 +29,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([-1, 0]), 0)
 
     def test_diff_list(self):
-        """Test list w/ strings item."""
+        """Test list w/ different items data type."""
 
         self.assertRaises(TypeError, max_integer, ['1', 2])
 

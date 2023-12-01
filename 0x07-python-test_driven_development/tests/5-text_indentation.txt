@@ -9,4 +9,5 @@ TypeError: text must be a string
 >>> text_indentation('.')
 .
 <BLANKLINE>
-<BLANKLINE>
+>>> text_indentation('Holberton School')
+Holberton School

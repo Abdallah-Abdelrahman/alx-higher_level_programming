@@ -49,7 +49,8 @@ def matrix_mul(m_a, m_b):
                 _sum += m_a[k][j] * m_b[j][i]
             m_c[k].append(_sum)
 
-    if len(m_a[0]) != _len_b:
-        raise ValueError("m_a and m_b can't be multiplied")
+    for i, _ in enumerate(m_a):
+        if len(m_a[i]) != _len_b:
+            raise ValueError("m_a and m_b can't be multiplied")
 
     return m_c

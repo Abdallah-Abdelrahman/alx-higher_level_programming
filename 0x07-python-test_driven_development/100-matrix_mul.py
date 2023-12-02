@@ -42,11 +42,12 @@ def matrix_mul(m_a, m_b):
                     raise TypeError('m_b must be a list of lists')
                 if not m_b[j]:
                     raise ValueError("m_b can't be empty")
-                if not isinstance(m_a[k][j], (int, float)):
+                if j < len(m_a[k]) and not isinstance(m_a[k][j], (int, float)):
                     raise TypeError(err_type_a)
                 if not isinstance(m_b[j][i], (int, float)):
                     raise TypeError(err_type_b)
-                _sum += m_a[k][j] * m_b[j][i]
+                if j < len(m_a[k]):
+                    _sum += m_a[k][j] * m_b[j][i]
             m_c[k].append(_sum)
 
     for i, _ in enumerate(m_a):

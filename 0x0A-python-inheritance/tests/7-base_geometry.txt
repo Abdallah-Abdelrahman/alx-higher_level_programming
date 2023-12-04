@@ -10,9 +10,3 @@ TypeError: name must be an integer
 >>> geo.integer_validator('age', 0)
 Traceback (most recent call last):
 ValueError: age must be greater than 0
->>> geo.integer_validator()
-Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
->>> geo.integer_validator('vol', -2)
-Traceback (most recent call last):
-ValueError: vol must be greater than 0

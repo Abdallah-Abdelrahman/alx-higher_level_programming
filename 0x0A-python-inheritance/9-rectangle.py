@@ -22,4 +22,4 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """string representaion of the class"""
-        return f'[Rectangle] {self.__width}/{self.height}'
+        return f'[Rectangle] {self.__width}/{self.__height}'

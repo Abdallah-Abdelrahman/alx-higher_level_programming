@@ -32,7 +32,10 @@ if int(num) < 4:
 
 
 def queens(n, i, a, b, c):
-    """solve N queen using backtrack algorithm"""
+    """solve N queen using backtrack algorithm
+
+    Using generator function
+    """
 
     if i < n:
         for j in range(n):

@@ -55,3 +55,4 @@ def matrix_mul(m_a, m_b):
             raise ValueError("m_a and m_b can't be multiplied")
 
     return m_c
+matrix_mul([[1, 2], [3, 4], [3, 4]] , [[5, 6, 1], [7, 8, 2]])

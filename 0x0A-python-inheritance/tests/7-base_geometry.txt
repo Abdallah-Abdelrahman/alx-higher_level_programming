@@ -2,4 +2,11 @@
 How to use `Geometry` class
 ===========================
 
->>> geo = __import__('7-base_geometry').Geometry
+>>> geo = __import__('7-base_geometry').BaseGeometry()
+>>> geo.integer_validator('name', 1)
+>>> geo.integer_validator('name', '1')
+Traceback (most recent call last):
+TypeError: name must be an integer
+>>> geo.integer_validator('age', 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0

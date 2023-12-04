@@ -18,8 +18,8 @@ class BaseGeometry:
             value(int): value
             name(str): name
         Raises:
-            TypeError: if value ``not`` int
-            ValueError: value <= zero
+            TypeError: if value doesn't equal integer
+            ValueError: value less than or equal to zero
         """
 
         if type(value) is not int:

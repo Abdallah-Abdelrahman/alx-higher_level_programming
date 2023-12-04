@@ -1,0 +1,5 @@
+===========================
+How to use `Geometry` class
+===========================
+
+>>> geo = __import__('7-base_geometry').Geometry

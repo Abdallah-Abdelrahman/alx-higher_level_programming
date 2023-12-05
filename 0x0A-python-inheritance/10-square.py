@@ -16,7 +16,6 @@ class Square(Rectangle):
         super().__init__(size, size)
 
     def area(self):
-        print(self.__size)
         """Return the area"""
 
         return super().area()

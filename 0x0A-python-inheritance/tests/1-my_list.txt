@@ -37,3 +37,26 @@ float
 >>> my_list.append(-1.2)
 >>> my_list.print_sorted()
 [-1.2, -1, 1, 2, 3, 4, 5]
+>>> my_list.clear()
+
+==========
+All negatives
+==========
+
+>>> my_list.append(-1)
+>>> my_list.append(-2)
+>>> my_list.append(-3)
+>>> my_list.print_sorted()
+[-3, -2, -1]
+
+=========
+all chars
+=========
+
+>>> my_list.clear()
+>>> my_list.append('b')
+>>> my_list.append('c')
+>>> my_list.append('a')
+>>> my_list.print_sorted()
+['a', 'b', 'c']
+

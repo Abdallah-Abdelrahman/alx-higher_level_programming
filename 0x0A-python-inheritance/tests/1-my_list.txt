@@ -11,7 +11,7 @@ The class basically inherits from `list` and has one function
 []
 >>> my_list.append(1)
 >>> my_list.append(4)
->>> my_list.append(2)
+>>> my_list.append(-2)
 >>> my_list.append(3)
 >>> my_list.append(5)
 >>> isinstance(my_list, list)
@@ -26,23 +26,15 @@ list of int
 ===========
 
 >>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
-
-==========
-negatives
-==========
-
->>> my_list.append(-1)
->>> my_list.print_sorted()
-[-1, 1, 2, 3, 4, 5]
+[-2, 1, 3, 4, 5]
 
 ==========
 float
 ==========
 
->>> my_list.append(-1.2)
+>>> my_list.append(1.2)
 >>> my_list.print_sorted()
-[-1.2, -1, 1, 2, 3, 4, 5]
+[-2, 1, 1.2, 3, 4, 5]
 >>> my_list.clear()
 
 =============

@@ -5,7 +5,8 @@ How to use MyList class
 The class basically inherits from `list` and has one function
 `print_sorted` that prints a list of `int` sorted
 
->>> my_list = __import__('1-my_list').MyList()
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
 >>> my_list.print_sorted()
 []
 >>> my_list.append(1)
@@ -71,4 +72,4 @@ Traceback (most recent call last):
 TypeError: '<' not supported between instances of 'int' and 'str'
 >>> my_list.print_sorted(2)
 Traceback (most recent call last):
-TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
+TypeError: print_sorted() takes 1 positional argument but 2 were given

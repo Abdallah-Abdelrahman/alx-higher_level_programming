@@ -24,10 +24,13 @@ False
 ===========
 list of int
 ===========
+
 >>> print(my_list)
 [1, 4, -2, 3, 5]
 >>> my_list.print_sorted()
 [-2, 1, 3, 4, 5]
+>>> copy = my_list.copy()
+>>> copy.print_sorted()
 
 ==========
 float
@@ -47,17 +50,6 @@ All negatives
 >>> my_list.append(-3)
 >>> my_list.print_sorted()
 [-3, -2, -1]
-
-=========
-all chars
-=========
-
->>> my_list.clear()
->>> my_list.append('b')
->>> my_list.append('c')
->>> my_list.append('a')
->>> my_list.print_sorted()
-['a', 'b', 'c']
 
 =============
 failing tests

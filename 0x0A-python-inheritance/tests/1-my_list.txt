@@ -2,11 +2,10 @@
 How to use MyList class
 =======================
 
-The class basically inherits from `list` and has on function
+The class basically inherits from `list` and has one function
 `print_sorted` that prints a list of `int` sorted
 
->>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList()
+>>> my_list = __import__('1-my_list').MyList()
 >>> my_list.print_sorted()
 []
 >>> my_list.append(1)
@@ -39,9 +38,9 @@ float
 [-1.2, -1, 1, 2, 3, 4, 5]
 >>> my_list.clear()
 
-==========
+=============
 All negatives
-==========
+=============
 
 >>> my_list.append(-1)
 >>> my_list.append(-2)

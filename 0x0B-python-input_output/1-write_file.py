@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module """
+"""Module defines write_file function"""
 
 
 def write_file(filename="", text=""):

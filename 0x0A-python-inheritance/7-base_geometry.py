@@ -6,6 +6,10 @@
 class BaseGeometry:
     """Geometry class"""
 
+    def __init__(self):
+        """no-op"""
+        pass
+
     def area(self):
         """Raises an error"""
 

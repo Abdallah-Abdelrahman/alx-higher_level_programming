@@ -16,6 +16,10 @@ The class basically inherits from `list` and has one function
 >>> my_list.append(5)
 >>> isinstance(my_list, list)
 True
+>>> issubclass(type(my_list), list)
+True
+>>> type(my_list) is list
+False
 
 ===========
 list of int

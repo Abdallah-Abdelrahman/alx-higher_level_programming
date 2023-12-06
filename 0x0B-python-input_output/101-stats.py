@@ -17,34 +17,28 @@ if __name__ == '__main__':
     try:
         for i, line in enumerate(stdin):
             stat = line.split()
-            _len = len(stat)
+            # 2nd to last token is the status code
+            # last token is the `size` to accumulate
+            code = stat[-2]
+            size = stat[-1]
 
-            if not stat[_len - 2] in stat_dict:
-                # 2nd to last token is the status code
-                stat_dict[stat[_len - 2]] = 0
+            if size.isnumeric():
+                stat_dict['size'] += int(size)
+            if code not in \
+                    ('200', '301', '400', '401', '403', '404', '405', '500'):
+                continue
+            if code not in stat_dict:
+                stat_dict[code] = 0
 
-            stat_dict[stat[_len - 2]] += 1
-            stat_dict['size'] += int(stat[_len - 1])
+            stat_dict[code] += 1
 
             if not (i + 1) % 10:
                 print('File size: {}'.format(stat_dict['size']))
-                if not isinstance(stat_dict[stat[_len - 2]], int):
-                    continue
                 for k, v in sorted(stat_dict.items()):
-                    if k == 'size':
-                        continue
-                    elif v:
+                    if k != 'size':
                         print('{}: {}'.format(k, v))
-#                    for k in stat_dict:
-#                        if k != 'size':
-#                            stat_dict[k] = 0
     except KeyboardInterrupt:
         print('File size: {}'.format(stat_dict['size']))
         for k, v in sorted(stat_dict.items()):
-            if k == 'size':
-                continue
-            elif v:
+            if k != 'size':
                 print('{}: {}'.format(k, v))
-#                for k in stat_dict:
-#                    if k != 'size':
-#                        stat_dict[k] = 0

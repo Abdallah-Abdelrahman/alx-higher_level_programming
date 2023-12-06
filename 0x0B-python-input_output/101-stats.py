@@ -28,6 +28,8 @@ if __name__ == '__main__':
 
             if not (i + 1) % 10:
                 print('File size: {}'.format(stat_dict['size']))
+                if not isinstance(stat_dict[stat[_len - 2]], int):
+                    continue
                 for k, v in sorted(stat_dict.items()):
                     if k == 'size':
                         continue

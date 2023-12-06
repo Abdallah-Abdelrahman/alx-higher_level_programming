@@ -14,14 +14,11 @@ def pascal_triangle(n):
     for row in range(n):
         _list.append([])
         for col in range(row + 1):
-            item = 0
+            item = row
             if not col or col == row:
                 item = 1
             else:
-                if row:
-                    item = _list[row - 1][col - 1] + _list[row - 1][col]
-                else:
-                    item = row
+                item = _list[row - 1][col - 1] + _list[row - 1][col]
             _list[row].append(item)
 
     return _list

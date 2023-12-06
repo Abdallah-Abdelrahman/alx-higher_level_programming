@@ -17,7 +17,7 @@ class Student:
         d = self.__dict__
         if isinstance(attrs, list) and\
                 all([isinstance(a, str) for a in attrs]):
-            return {a: d[a] for a in attrs for _ in d if a in d}
+            return {a: d[a] for a in attrs if a in d}
         else:
             return self.__dict__
 

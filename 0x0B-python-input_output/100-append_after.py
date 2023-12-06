@@ -9,10 +9,10 @@ def append_after(filename="", search_string="", new_string=""):
     """
 
     _line = ''
-    with open(filename, 'r', encoding='utf-8') as f:
+    with open(filename, 'r+') as f:
         for line in f:
             _line += line
             if search_string in line:
                 _line += new_string
-    with open(filename, 'w', encoding='utf-8') as f:
+        f.seek(0)
         f.write(_line)

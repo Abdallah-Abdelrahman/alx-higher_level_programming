@@ -15,7 +15,9 @@ if __name__ == '__main__':
     stat_dict = {'size': 0}
 
     try:
+        j = 0
         for i, line in enumerate(stdin):
+            j = i
             stat = line.split()
             # 2nd to last token is the status code
             # last token is the `size` to accumulate
@@ -37,7 +39,7 @@ if __name__ == '__main__':
                 for k, v in sorted(stat_dict.items()):
                     if k != 'size':
                         print('{}: {}'.format(k, v))
-        if (i + 1) % 10:
+        if (j + 1) % 10:
             print('File size: {}'.format(stat_dict['size']))
             for k, v in sorted(stat_dict.items()):
                 if k != 'size':

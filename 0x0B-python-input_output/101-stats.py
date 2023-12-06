@@ -37,6 +37,11 @@ if __name__ == '__main__':
                 for k, v in sorted(stat_dict.items()):
                     if k != 'size':
                         print('{}: {}'.format(k, v))
+        if (i + 1) % 10:
+            print('File size: {}'.format(stat_dict['size']))
+            for k, v in sorted(stat_dict.items()):
+                if k != 'size':
+                    print('{}: {}'.format(k, v))
     except KeyboardInterrupt:
         print('File size: {}'.format(stat_dict['size']))
         for k, v in sorted(stat_dict.items()):

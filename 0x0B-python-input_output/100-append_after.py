@@ -6,6 +6,11 @@ def append_after(filename="", search_string="", new_string=""):
     """Append new line contains the new string
 
     for each occurence of `search_string`
+
+    Args:
+        filename: name of the file
+        search_string: string to search for in a line
+        new_string: string to append
     """
 
     _line = ''

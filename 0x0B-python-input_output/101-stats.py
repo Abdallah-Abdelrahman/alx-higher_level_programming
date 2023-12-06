@@ -5,8 +5,7 @@ Attributes:
     stat_dict: dictionary that holds the code status, and the size
 
     Example:
-        >>> stat_dict = {'200': 1, '404': 2, '500': 3, 'size': 10}
-
+        stat_dict = {'200': 1, '404': 2, '500': 3, 'size': 10}
 """
 
 from sys import stdin
@@ -21,6 +20,7 @@ if __name__ == '__main__':
             _len = len(stat)
 
             if not stat[_len - 2] in stat_dict:
+                # 2nd to last token is the status code
                 stat_dict[stat[_len - 2]] = 0
 
             stat_dict[stat[_len - 2]] += 1

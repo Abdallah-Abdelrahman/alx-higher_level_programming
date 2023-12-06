@@ -19,6 +19,8 @@ if __name__ == '__main__':
         for i, line in enumerate(stdin):
             j = i
             stat = line.split()
+            if len(stat) < 2:
+                continue
             # 2nd to last token is the status code
             # last token is the `size` to accumulate
             code = stat[-2]

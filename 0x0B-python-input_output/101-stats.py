@@ -16,8 +16,8 @@ if __name__ == '__main__':
 
     try:
         j = 0
-        for i, line in enumerate(stdin):
-            j = i
+        for line in stdin:
+            j += 1
             stat = line.split()
             if len(stat) < 2:
                 continue
@@ -36,12 +36,14 @@ if __name__ == '__main__':
 
             stat_dict[code] += 1
 
-            if not (i + 1) % 10:
+            if not j % 10:
                 print('File size: {}'.format(stat_dict['size']))
                 for k, v in sorted(stat_dict.items()):
                     if k != 'size':
                         print('{}: {}'.format(k, v))
-        if (j + 1) % 10:
+        if not j or j % 10:
+            # check for zero size file
+            # and also check when lines isn't multiple of 10
             print('File size: {}'.format(stat_dict['size']))
             for k, v in sorted(stat_dict.items()):
                 if k != 'size':

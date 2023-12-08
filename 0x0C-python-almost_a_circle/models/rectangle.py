@@ -58,6 +58,11 @@ class Rectangle(Base):
               ([self.__x * ' ' + '#'
                 * self.__width for _ in range(self.__height)]))
 
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
+        
+        return {k: getattr(self, k) for k in ['x', 'y', 'id', 'height', 'width']}
+
     def __str__(self):
         """string representation of Rectangle"""
 

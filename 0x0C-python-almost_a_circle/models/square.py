@@ -57,7 +57,7 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle."""
-        
+
         return {k: getattr(self, k) for k in ['id', 'x', 'size', 'y']}
 
     @property

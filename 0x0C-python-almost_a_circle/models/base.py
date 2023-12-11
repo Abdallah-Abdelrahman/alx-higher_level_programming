@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module defines Base class"""
+"""Module defines Base class."""
 
 from json import dumps, loads
 

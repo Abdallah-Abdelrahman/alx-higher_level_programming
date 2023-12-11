@@ -3,11 +3,19 @@
 """
 
 import unittest
+import pep8
 from models.base import Base
 
 
 class TestBase(unittest.TestCase):
     """Test Base class"""
+
+    def test_pep8_base(self):
+        """Test that the base module conforms to PEP8."""
+        style = pep8.StyleGuide()
+        result = style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
     def test_cls_doc(self):
         """Test class doc """

@@ -23,7 +23,7 @@ class Square(Rectangle):
         """
 
         super().__init__(size, size, x, y, id)
-        self.size = size
+#        self.size = size
 
     def update(self, *args, **kwargs):
         """Updates instance attributes
@@ -63,7 +63,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """Getter for size(width and height)"""
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, size):
@@ -75,7 +75,7 @@ class Square(Rectangle):
 #            raise ValueError('width must be > 0')
         self.width = size
         self.height = size
-        self.__size = size
+#        self.__size = size
 
     def __str__(self):
         """string representation of Square"""

@@ -22,7 +22,7 @@ class Square(Rectangle):
                 or `x` or `y` less than zero
         """
 
-        super().__init__(size, size, x=x, y=y, id=id)
+        super().__init__(size, size, x, y, id)
         self.size = size
 
     def update(self, *args, **kwargs):

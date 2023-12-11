@@ -44,7 +44,7 @@ class Base:
         with open(cls.__name__ + '.json', 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string
                     ([o.to_dictionary() for o in list_objs]
-                     if list_objs else []))
+                     if isinstance(list_objs, list_objs) else []))
 
     @classmethod
     def create(cls, **dictionary):

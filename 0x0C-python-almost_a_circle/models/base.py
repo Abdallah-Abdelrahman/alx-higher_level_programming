@@ -61,8 +61,11 @@ class Base:
             and initializes positional args w/ 1
         """
 
-        name = cls.__name__
-        obj = cls(1, 1)
+        obj = None
+        if cls.__name__ == 'Rectangle':
+            obj = cls(1, 1)
+        else:
+            obj = cls(1)
         obj.update(**dictionary)
         return obj
 

@@ -46,7 +46,7 @@ class Base:
         """
 
         with open(cls.__name__ + '.json', 'w', encoding='utf-8') as f:
-            f.write(Base.to_json_string
+            f.write(cls.to_json_string
                     ([o.to_dictionary() for o in list_objs]
                      if isinstance(list_objs, list) else []))
 
@@ -54,21 +54,15 @@ class Base:
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set.
 
+        Args:
+            dictionary: kwargs
         Notes:
             the function creates new instance from `Rectangle` or `Square`
             and initializes positional args w/ 1
-
-        Examples:
-            >>> r = Rectangle(1, 1)
-            >>> print(r)
-            [Rectangle] (1) 0/0 - 1/1
-            >>> s = Square(1, 1)
-            >>> print(s)
-            [Square] (1) 1/0 - 1
         """
 
         name = cls.__name__
-        obj = getattr(__import__(name.lower()), name)(1, 1)
+        obj = cls(1, 1)
         obj.update(**dictionary)
         return obj
 

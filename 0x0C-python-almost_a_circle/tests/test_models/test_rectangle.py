@@ -23,12 +23,12 @@ class TestRectangle(unittest.TestCase):
     def test_init1(self):
         """Test"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.id, 6)
+        self.assertEqual(r1.id, 7)
 
     def test_init2(self):
         """Test"""
         r2 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 7)
+        self.assertEqual(r2.id, 8)
 
     def test_init3(self):
         """Test"""
@@ -154,7 +154,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-            _str = "{'x': 1, 'y': 9, 'id': 13, 'height': 2, 'width': 10}"
+            _str = "{'x': 1, 'y': 9, 'id': 14, 'height': 2, 'width': 10}"
 
             print(r1_dictionary)
             self.assertEqual(mock_stdout.getvalue().strip(), _str)

@@ -33,11 +33,11 @@ class TestBase(unittest.TestCase):
         b3 = Base()
         b4 = Base(12)
         b5 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b1.id, 2)
+        self.assertEqual(b2.id, 3)
+        self.assertEqual(b3.id, 4)
         self.assertEqual(b4.id, 12)
-        self.assertEqual(b5.id, 4)
+        self.assertEqual(b5.id, 5)
 
     def test_to_json(self):
         """Serialization test"""
@@ -45,14 +45,14 @@ class TestBase(unittest.TestCase):
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-            _str = "{'x': 2, 'y': 8, 'id': 5, 'height': 7, 'width': 10}"
+            _str = "{'x': 2, 'y': 8, 'id': 6, 'height': 7, 'width': 10}"
             print(dictionary)
             self.assertEqual(mock_stdout.getvalue().strip(), _str)
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             print(type(dictionary))
             self.assertEqual(mock_stdout.getvalue(), "<class 'dict'>\n")
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-            _str = '[{"x": 2, "y": 8, "id": 5, "height": 7, "width": 10}]'
+            _str = '[{"x": 2, "y": 8, "id": 6, "height": 7, "width": 10}]'
             print(json_dictionary)
             self.assertEqual(mock_stdout.getvalue().strip(), _str)
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -93,3 +93,23 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_list_input, ouput1)
         self.assertEqual(list_output, list_input)
         self.assertEqual(Rectangle.to_json_string(None), '[]')
+
+    def test_create(self):
+        """Test create"""
+        r1 = Rectangle(3, 5, 1, 1, 3)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            print(r1)
+            self.assertEqual(m_stdout.getvalue(),
+                             '[Rectangle] (3) 1/1 - 3/5\n')
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            print(r2)
+            self.assertEqual(m_stdout.getvalue(),
+                             '[Rectangle] (3) 1/1 - 3/5\n')
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            self.assertFalse(r1 is r2)
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            self.assertFalse(r1 == r2)
+        with self.assertRaises(TypeError):
+            Rectangle.create(None)

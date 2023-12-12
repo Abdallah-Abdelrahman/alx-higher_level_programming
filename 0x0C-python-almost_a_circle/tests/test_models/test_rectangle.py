@@ -135,3 +135,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 5)
         r1.update(height=1)
         self.assertEqual(r1.height, 1)
+        with self.assertRaises(ValueError):
+            r1.update(width=0)
+
+    def test_to_dictionary(self):
+        """Test to_dictionary"""
+
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            print(r1_dictionary)
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             "{'x': 1, 'y': 9, 'id': 12, 'height': 2,\
+                                     'width': 10}")
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            print(type(r1_dictionary))
+            self.assertEqual(mock_stdout.getvalue().strip(), "<class 'dict'>")

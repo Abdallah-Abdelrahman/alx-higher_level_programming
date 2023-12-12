@@ -72,6 +72,12 @@ class TestBase(unittest.TestCase):
                 print(file.read())
             self.assertEqual(mock_stdout.getvalue().strip(), output)
 
+        Rectangle.save_to_file([])
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            with open("Rectangle.json", "r") as file:
+                print(file.read())
+            self.assertEqual(mock_stdout.getvalue().strip(), '[]')
+
     def test_from_json(self):
         """Test from_json"""
 
@@ -86,3 +92,4 @@ class TestBase(unittest.TestCase):
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(json_list_input, ouput1)
         self.assertEqual(list_output, list_input)
+        self.assertEqual(Rectangle.to_json_string(None), '[]')

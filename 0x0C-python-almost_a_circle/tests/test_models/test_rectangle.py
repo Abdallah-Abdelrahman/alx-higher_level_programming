@@ -40,6 +40,12 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'width must be > 0'):
             r = Rectangle(10, 2)
             r.width = -10
+
+    def test_setter_fail_w1(self):
+        """Test width"""
+        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
+            Rectangle('10', 2)
+
     def test_setter_fail_h(self):
         """Test width/height"""
         with self.assertRaisesRegex(TypeError, 'height must be an integer'):
@@ -81,8 +87,53 @@ class TestRectangle(unittest.TestCase):
             r.display()
             self.assertEqual(mock_stdout.getvalue().strip(), '#')
 
+    def test_display_xy(self):
+        """Test display"""
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            r1 = Rectangle(2, 2, 1, 0, 0)
+            r1.display()
+            self.assertEqual(mock_stdout.getvalue(), ' ##\n ##\n')
+
     def test_display_fail(self):
         """Test fialing scenarios"""
 
         r = Rectangle(1, 1, 0, 0, 0)
         self.assertRaises(TypeError, r.display, '#')
+
+    def test_str(self):
+        """Test __str__"""
+
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            r = Rectangle(1, 1, 0, 0, 0)
+            print(r)
+            self.assertEqual(mock_stdout.getvalue().strip(),
+                             '[Rectangle] (0) 0/0 - 1/1')
+
+    def test_update(self):
+        """Test update"""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        self.assertEqual(r1.id, 89)
+        r1.update(89, 2)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        self.assertEqual(r1.x, 4)
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 5)
+
+
+if __name__ == "__main__":
+    unittest.main()

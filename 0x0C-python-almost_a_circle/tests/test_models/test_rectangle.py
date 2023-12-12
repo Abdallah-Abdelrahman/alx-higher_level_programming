@@ -5,7 +5,9 @@
 import io
 import unittest
 from unittest.mock import patch
+
 from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestRectangle(unittest.TestCase):
@@ -23,12 +25,12 @@ class TestRectangle(unittest.TestCase):
     def test_init1(self):
         """Test"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.id, 7)
+        self.assertEqual(r1.id, 9)
 
     def test_init2(self):
         """Test"""
         r2 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 8)
+        self.assertEqual(r2.id, 10)
 
     def test_init3(self):
         """Test"""
@@ -154,10 +156,56 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-            _str = "{'x': 1, 'y': 9, 'id': 14, 'height': 2, 'width': 10}"
+            _str = "{'x': 1, 'y': 9, 'id': 18, 'height': 2, 'width': 10}"
 
             print(r1_dictionary)
             self.assertEqual(mock_stdout.getvalue().strip(), _str)
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             print(type(r1_dictionary))
             self.assertEqual(mock_stdout.getvalue().strip(), "<class 'dict'>")
+
+    def test_create(self):
+        """Test create"""
+        r1 = Rectangle(3, 3, 1, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            print(r1)
+            self.assertEqual(m_stdout.getvalue(),
+                             '[Rectangle] (7) 1/1 - 3/3\n')
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            print(r2)
+            self.assertEqual(m_stdout.getvalue(),
+                             '[Rectangle] (7) 1/1 - 3/3\n')
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            self.assertFalse(r1 is r2)
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            self.assertFalse(r1 == r2)
+        with self.assertRaises(TypeError):
+            Rectangle.create(None)
+
+    def test_load_from_file(self):
+        """Test `load_from_file`"""
+
+        r1 = Rectangle(10, 7, 2, 8, 0)
+        list_rectangles_input = [r1]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            for rect in list_rectangles_output:
+                print("{}".format(rect))
+                self.assertEqual(m_stdout.getvalue(),
+                                 '[Rectangle] (0) 2/8 - 10/7\n')
+        Rectangle.save_to_file(None)
+        output2 = Rectangle.load_from_file()
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            for rect in output2:
+                print("{}".format(rect))
+                self.assertEqual(m_stdout.getvalue(), [])
+        s = Square(1, 1, 1, 1)
+        Square.save_to_file([s])
+        output2 = Square.load_from_file()
+        with patch('sys.stdout', new_callable=io.StringIO) as m_stdout:
+            print("{}".format(output2[0]))
+            self.assertEqual(m_stdout.getvalue(),
+                             '[Square] (1) 1/1 - 1\n')

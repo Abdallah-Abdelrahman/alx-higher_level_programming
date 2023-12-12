@@ -58,3 +58,31 @@ class TestBase(unittest.TestCase):
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             print(type(json_dictionary))
             self.assertEqual(mock_stdout.getvalue(), "<class 'str'>\n")
+
+    def test_save_to_file(self):
+        """Test save to file"""
+
+        r1 = Rectangle(10, 7, 2, 8, 0)
+        r2 = Rectangle(2, 4, 0, 0, 1)
+        Rectangle.save_to_file([r1, r2])
+        _str1 = '[{"x": 2, "y": 8, "id": 0, "height": 7, "width": 10}, '
+        output = _str1 + '{"x": 0, "y": 0, "id": 1, "height": 4, "width": 2}]'
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            with open("Rectangle.json", "r") as file:
+                print(file.read())
+            self.assertEqual(mock_stdout.getvalue().strip(), output)
+
+    def test_from_json(self):
+        """Test from_json"""
+
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+
+        _str1 = '[{"id": 89, "width": 10, "height": 4}, '
+        ouput1 = _str1 + '{"id": 7, "width": 1, "height": 7}]'
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(json_list_input, ouput1)
+        self.assertEqual(list_output, list_input)

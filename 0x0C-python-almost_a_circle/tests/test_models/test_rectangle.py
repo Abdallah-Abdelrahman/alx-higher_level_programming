@@ -18,30 +18,43 @@ class TestRectangle(unittest.TestCase):
     def test_init(self):
         """Test __init__"""
         r0 = Rectangle(10, 2, 0, 0, -1)
-        r1 = Rectangle(10, 2)
-        r2 = Rectangle(2, 10)
-        r3 = Rectangle(10, 2, 0, 0, 12)
-
         self.assertEqual(r0.id, -1)
+
+    def test_init1(self):
+        """Test"""
+        r1 = Rectangle(10, 2)
         self.assertEqual(r1.id, 5)
+
+    def test_init2(self):
+        """Test"""
+        r2 = Rectangle(2, 10)
         self.assertEqual(r2.id, 6)
+
+    def test_init3(self):
+        """Test"""
+        r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
 
-    def test_setter_wh(self):
+    def test_setter_fail_w(self):
         """Test width/height"""
-        with self.assertRaisesRegex(TypeError, 'height must be an integer'):
-            r = Rectangle(10, "2")
         with self.assertRaisesRegex(ValueError, 'width must be > 0'):
             r = Rectangle(10, 2)
             r.width = -10
+    def test_setter_fail_h(self):
+        """Test width/height"""
+        with self.assertRaisesRegex(TypeError, 'height must be an integer'):
+            Rectangle(10, "2")
 
-    def test_setter_xy(self):
+    def test_setter_x(self):
         """Test x/y"""
-        with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
-            Rectangle(10, 2, 3, -1)
         with self.assertRaisesRegex(TypeError, 'x must be an integer'):
             r = Rectangle(10, 2)
             r.x = {}
+
+    def test_setter_y(self):
+        """Test x/y"""
+        with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
+            Rectangle(10, 2, 3, -1)
 
     def test_area(self):
         """Test area"""

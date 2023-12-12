@@ -56,11 +56,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'x must be an integer'):
             r = Rectangle(10, 2)
             r.x = {}
+        with self.assertRaisesRegex(TypeError, 'x must be an integer'):
+            Rectangle(1, 2, '3', 4, 5)
 
     def test_setter_y(self):
         """Test x/y"""
         with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
             Rectangle(10, 2, 3, -1)
+        with self.assertRaisesRegex(TypeError, 'y must be an integer'):
+            Rectangle(10, 2, 3, '4', 1)
 
     def test_area(self):
         """Test area"""

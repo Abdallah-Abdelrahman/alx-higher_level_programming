@@ -4,6 +4,9 @@
 
 The N queens puzzle is the challenge of placing N non-attacking queens,
 on an N×N chessboard.
+basically it depends on brute force search or generate and test approach.
+Time complexity: O(n! * n^2), but hence the dominant factor is n!, it reduces
+to O(n!)
 
 Attributes:
     _len: length of the arguments to program.
@@ -31,19 +34,40 @@ if int(num) < 4:
     exit(1)
 
 
-def queens(n, i, a, b, c):
-    """solve N queen using backtrack algorithm
+def is_valid(iter):
+    '''Validate solution
 
-    Using generator function
-    """
+    Args:
+        iter: list of integers
+    '''
+    _len = len(iter)
+    for i in range(_len):
+        for j in range(i + 1, _len):
+            if iter[i] == iter[j] or abs(i - j) == abs(iter[i] - iter[j]):
+                return False
+    return True
 
-    if i < n:
-        for j in range(n):
-            if j not in a and i+j not in b and i-j not in c:
-                yield from queens(n, i+1, a+[j], b+[i+j], c+[i-j])
-    else:
-        yield a
+
+def perm(input, prefix, res):
+    '''Find all permutations of given input
+
+    Args:
+        l(list:int): list of integer
+        prefix(list:int): list of candidates
+        res(list:list:int): result to store all valid solutions
+
+    '''
+    if len(input) == 0 and is_valid(prefix):
+        res.append(list(prefix))
+    for n in input:
+        prefix.append(n - 1)
+        perm([i for i in input if i != n], prefix, res)
+        prefix.remove(n - 1)
 
 
-for solution in queens(num, 0, [], [], []):
-    print([[row, col] for row, col in enumerate(solution)])
+if __name__ == '__main__':
+    res = []
+    perm([n + 1 for n in range(num)], [], res)
+
+    for solution in res:
+        print([[i, c] for i, c in enumerate(solution)])

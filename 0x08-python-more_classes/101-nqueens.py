@@ -58,16 +58,13 @@ def perm(input, prefix, res):
 
     '''
     if len(input) == 0 and is_valid(prefix):
-        res.append(list(prefix))
-    for n in input:
-        prefix.append(n - 1)
-        perm([i for i in input if i != n], prefix, res)
-        prefix.remove(n - 1)
+        res.append(prefix)
+    for i, n in enumerate(input):
+        perm(input[:i] + input[i + 1:], prefix + [n], res)
 
 
 if __name__ == '__main__':
     res = []
-    perm([n + 1 for n in range(num)], [], res)
-
+    perm(list(range(num)), [], res)
     for solution in res:
         print([[i, c] for i, c in enumerate(solution)])

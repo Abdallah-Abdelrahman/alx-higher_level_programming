@@ -2,7 +2,7 @@
 -- first_table description:
 -- id INT
 -- name VARCHAR(256)
-CREATE TABLE first_table IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS first_table (
 	id INT,
 	name VARCHAR(256)
 );

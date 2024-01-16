@@ -1,3 +1,3 @@
 -- lists all the tables of a database in your MySQL server.
 -- The database name will be passed as argument of mysql command
-SHOW TABLES FROM "$1" IF EXISTS
+SHOW TABLES FROM @db IF EXISTS

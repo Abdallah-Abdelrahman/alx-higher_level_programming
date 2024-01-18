@@ -5,7 +5,7 @@ JOIN tv_show_genres AS sg
 ON g.id = sg.genre_id
 JOIN tv_shows AS s
 ON s.id = sg.show_id
-JOIN r
+JOIN tv_show_ratings AS r
 ON s.id = r.show_id
 GROUP BY g.name
 ORDER BY `rating` DESC;

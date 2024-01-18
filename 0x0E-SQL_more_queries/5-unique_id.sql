@@ -1,5 +1,5 @@
 -- creates the TABLE unique_id ON your MySQL server.
 CREATE TABLE IF NOT EXISTS unique_id (
-	id INT DEFAULT 1,
+	id INT UNIQUE DEFAULT 1,
 	name VARCHAR(256)
 );

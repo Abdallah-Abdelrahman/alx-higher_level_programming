@@ -7,4 +7,5 @@ JOIN tv_shows AS s
 ON s.id = sg.show_id
 JOIN r
 ON s.id = r.show_id
+GROUP BY g.name
 ORDER BY `rating` DESC;

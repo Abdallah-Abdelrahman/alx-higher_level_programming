@@ -5,5 +5,6 @@ CREATE TABLE hbtn_0d_usa.cities (
 	id INT UNIQUE NOT NULL AUTO_INCREMENT,
 	state_id INT NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (state_id) REFERENCES hbtn_0d_usa.states(state_id)
+	FOREIGN KEY (state_id)
+		REFERENCES hbtn_0d_usa.states(hbtn_0d_usa.states.id);
 );

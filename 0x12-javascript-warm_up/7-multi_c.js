@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 // prints x times “C is fun”
 const { argv } = process;
 const n = parseInt(argv[2]);

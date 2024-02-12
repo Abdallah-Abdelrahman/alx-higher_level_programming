@@ -3,9 +3,9 @@
  * @module 102-add_me_maybe.js
  * increments and calls a function.
  * @function
- * @param {number} n
- * @param {function} cb
+ * @param {number} number
+ * @param {function} theFunction
  */
-module.exports.addMeMaybe = function (n, theFunction) {
-  theFunction(n++);
+module.exports.addMeMaybe = function (number, theFunction) {
+  theFunction(number + 1);
 };

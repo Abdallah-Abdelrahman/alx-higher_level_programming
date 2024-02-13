@@ -17,11 +17,10 @@ module.exports = class Rectangle {
   print () {
     let s = '';
     if (this.width && this.height) {
-      for (let i = 0; i < this.height; i++, s += i < this.height ? '\n' : '') {
-        for (let j = 0; j < this.width; j++) {
-          s += 'X';
-        }
-      }
+      s =
+        [...Array(this.height)]
+          .map(_ => [...Array(this.width)].map(_ => 'X').join(''))
+          .join('\n');
     }
     console.log(s);
   }

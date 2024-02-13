@@ -12,7 +12,6 @@ exports.esrever = function (list) {
   if (!Array.isArray(list)) return (list);
 
   const rev = [...list];
-  console.log(rev);
   start = 0;
   end = list.length - 1;
   while (start <= end / 2) {

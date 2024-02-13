@@ -5,12 +5,16 @@
  * @return {Array} the reversed list
  */
 exports.esrever = function (list) {
-  let start, end, tmp, rev;
+  let start;
+  let end;
+  let tmp;
 
   if (!Array.isArray(list)) return (list);
 
-  rev = [...list];
-  start = 0, end = list.length - 1;
+  const rev = [...list];
+  console.log(rev);
+  start = 0;
+  end = list.length - 1;
   while (start <= end / 2) {
     tmp = rev[start];
     rev[start] = rev[end];

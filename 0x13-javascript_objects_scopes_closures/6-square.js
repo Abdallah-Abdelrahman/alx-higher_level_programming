@@ -1,19 +1,11 @@
 #!/usr/bin/node
-const Rectangle = require('./4-rectangle');
+const OldSquare = require('./5-square');
 
 /**
  * Class reperesents Square.
  * @extends Rectangle
  */
-module.exports = class Square extends Rectangle {
-  /**
-   * Create a Square
-   * @param {number} size
-   */
-  constructor (size) {
-    super(size, size);
-  }
-
+module.exports = class Square extends OldSquare {
   /**
    * Print a square
    * @param {string=} c

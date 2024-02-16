@@ -18,10 +18,8 @@ if __name__ == '__main__':
            SELECT id FROM states
                WHERE name = %s
         )
-        ORDER BY id;
-                """, (argv[4],))
-    for i, r in enumerate(cur._rows):
-        print(r[0], end='' if i + 1 >= cur.rowcount else ', ')
-    print()
+        ORDER BY id;""", (argv[4],))
+
+    print(', '.join(r[0] for r in cur._rows))
     cur.close()
     conn.close()

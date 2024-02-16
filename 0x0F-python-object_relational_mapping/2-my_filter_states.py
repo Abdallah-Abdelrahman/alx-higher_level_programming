@@ -16,8 +16,7 @@ if __name__ == '__main__':
                 WHERE name = '{}'
                 ORDER BY id""".format(argv[4])
     cur.execute(query)
-    rows = cur.fetchall()
-    for r in rows:
-        print(r)
+    row = cur.fetchone()
+    print(row)
     cur.close()
     conn.close()

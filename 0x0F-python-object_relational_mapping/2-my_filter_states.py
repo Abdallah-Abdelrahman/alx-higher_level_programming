@@ -15,7 +15,8 @@ if __name__ == '__main__':
     cur.execute("""SELECT * FROM states
                 WHERE name = %s
                 ORDER BY id ASC""", (argv[4],))
-    row = cur.fetchone()
-    print(row)
+    rows = cur.fetchall()
+    for r in rows:
+        print(r)
     cur.close()
     conn.close()

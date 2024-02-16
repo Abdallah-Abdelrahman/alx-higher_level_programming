@@ -4,11 +4,11 @@ connect to a MySQL server running on localhost at port 3306,
 the query searches for certain name
 '''
 
-import MySQLdb
-from sys import argv
-
 
 if __name__ == '__main__':
+    import MySQLdb
+    from sys import argv
+
     conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                            passwd=argv[2], db=argv[3], charset="utf8")
     cur = conn.cursor()

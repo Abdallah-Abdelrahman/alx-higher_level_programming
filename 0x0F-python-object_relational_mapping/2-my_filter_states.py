@@ -13,7 +13,7 @@ if __name__ == '__main__':
                            passwd=argv[2], db=argv[3], charset="utf8")
     cur = conn.cursor()
     query = """SELECT * FROM `states`
-                WHERE `states`.name LIKE "{}"
+                WHERE `states`.name = '{}' COLLATE utf8mb3_bin
                 ORDER BY `states`.id ASC;""".format(argv[4])
     cur.execute(query)
     rows = cur.fetchall()

@@ -1,2 +1,4 @@
+**/__pycache__
 *.sql
 venv
+6-model_state.py

@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # sessionmaker function returns `Session` class
     session = sessionmaker(bind=engine)()
     for state in session.query(State)\
-            .join(State.cities).order_by(State.id, City.id):
+            .join(City, State.id == City.state_id).order_by(State.id, City.id):
         print('{}: {}'.format(state.id, state.name))
         print('\n'.join(['\t{}: {}'.format(city.id, city.name)
                          for city in state.cities]))

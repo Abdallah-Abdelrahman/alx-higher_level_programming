@@ -21,6 +21,6 @@ if __name__ == '__main__':
     query_result = ''
     states = session.query(State).all()
     for state in states:
-        print('{}: {}\n{}'.format(state.id, state.name, '\n'.join(['\t{}: {}'
-                                  .format(city.id, city.name)
-                                            for city in state.cities])))
+        print('{}: {}'.format(state.id, state.name))
+        for c in state.cities:
+            print(f'\t{c.id}: {c.name}')

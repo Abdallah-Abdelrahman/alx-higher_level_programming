@@ -3,4 +3,4 @@
 # shellcheck disable=SC1083
 
 
-curl -s "$1"
+curl -X GET "$1"

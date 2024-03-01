@@ -1,3 +1,3 @@
 #!/bin/bash
 # Fetch status code
-curl -sw "%{http_code}\n" -o /dev/null
+curl -sw "%{http_code}" -o /dev/null

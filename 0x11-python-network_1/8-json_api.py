@@ -13,9 +13,9 @@ if __name__ == '__main__':
         req = post(url, params={'q': q})
         req.raise_for_status()
         json = req.json()
-        print('No result' if len(json) == 0 else '[{}] {}'
+        print('[{}] {}'
               .format(json['id'], json['name']))
     except exceptions.JSONDecodeError:
         print('Not a valid JSON')
     except exceptions.HTTPError:
-        pass
+        print('No result')

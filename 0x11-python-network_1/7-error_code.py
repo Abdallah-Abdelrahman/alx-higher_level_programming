@@ -9,6 +9,7 @@ from requests import get, exceptions
 if __name__ == '__main__':
     try:
         req = get(sys.argv[1])
+        req.raise_for_status()
         print(req.text)
     except exceptions.HTTPError:
         if req.status_code >= 400:

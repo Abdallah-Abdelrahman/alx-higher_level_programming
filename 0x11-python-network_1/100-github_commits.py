@@ -9,14 +9,10 @@ from requests import get, exceptions
 if __name__ == '__main__':
     url = f'https://api.github.com/repos/{sys.argv[2]}/{sys.argv[1]}/commits'
     try:
-        req = get(url)
+        req = get(url, params={'per_page': 10})
         commits = req.json()
-        for i, commit in enumerate(
-                sorted(commits, key=lambda el: el['commit']['author']['date'],
-                       reverse=True)):
-            if i > 9:
-                break
-            print('{}: {}'.format(commit['sha'],
-                                  commit['commit']['author']['name']))
+        for cmt in commits:
+            print('{}: {}'.format(cmt['sha'],
+                                  cmt['commit']['author']['name']))
     except exceptions.HTTPError:
         pass

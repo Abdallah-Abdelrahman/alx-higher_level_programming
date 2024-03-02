@@ -7,15 +7,15 @@ from requests import post, exceptions
 
 
 if __name__ == '__main__':
-    q = sys.argv[2] if len(sys.argv) > 2 else ""
+    q = sys.argv[1] if len(sys.argv) > 1 else ""
     url = 'http://0.0.0.0:5000/search_user'
     try:
         req = post(url, params={'q': q})
         req.raise_for_status()
         json = req.json()
-        print('[{}] {}'
+        print('No result' if len(json) == 0 else '[{}] {}'
               .format(json['id'], json['name']))
     except exceptions.JSONDecodeError:
         print('Not a valid JSON')
     except exceptions.HTTPError:
-        print('No result')
+        pass

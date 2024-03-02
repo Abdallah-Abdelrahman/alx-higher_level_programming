@@ -10,7 +10,7 @@ if __name__ == '__main__':
     q = sys.argv[1] if len(sys.argv) > 1 else ""
     url = 'http://0.0.0.0:5000/search_user'
     try:
-        req = post(url, params={'q': q})
+        req = post(url, data={'q': q})
         req.raise_for_status()
         json = req.json()
         print('No result' if len(json) == 0 else '[{}] {}'

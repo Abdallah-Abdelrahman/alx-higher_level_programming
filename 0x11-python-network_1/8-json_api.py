@@ -11,6 +11,7 @@ if __name__ == '__main__':
     url = 'http://0.0.0.0:5000/search_user'
     try:
         req = get(url, params={'q': q})
+        req.raise_for_status()
         json = req.json()
         print('No result' if len(json) == 0 else '[{}] {}'
               .format(json['id'], json['name']))

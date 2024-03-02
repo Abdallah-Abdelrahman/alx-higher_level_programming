@@ -3,7 +3,7 @@
 http://0.0.0.0:5000/search_user with the letter as a parameter.
 '''
 import sys
-from requests import post, exceptions
+from requests import post
 
 
 if __name__ == '__main__':

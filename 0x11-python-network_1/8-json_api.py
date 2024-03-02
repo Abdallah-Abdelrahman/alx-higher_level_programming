@@ -8,7 +8,7 @@ from requests import get, exceptions
 
 if __name__ == '__main__':
     q = sys.argv[2] if len(sys.argv) > 2 else ""
-    url = 'http://0.0.0.0:5000/search_user?'
+    url = 'http://0.0.0.0:5000/search_user'
     try:
         req = get(url, params={'q': q})
         json = req.json()

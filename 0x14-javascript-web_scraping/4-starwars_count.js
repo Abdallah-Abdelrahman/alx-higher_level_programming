@@ -6,12 +6,12 @@ request(argv[2], function (error, response, body) {
   if (error) { return console.log(error); }
   if (response.statusCode === 200) {
     const films = JSON.parse(body).results;
-    const number = films.reduce((acc, { characters }) => {
-      if (characters.indexOf('https://swapi-api.alx-tools.com/api/people/18/') >= 0) {
-        acc++;
+    let count = 0;
+    for (const f of films) {
+      if (f.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+        count++;
       }
-      return acc;
-    }, 0);
-    console.log(number);
+    }
+    console.log(count);
   }
 });

@@ -9,9 +9,7 @@ request.get(argv[2], function (error, response, body) {
     const films = JSON.parse(body).results;
     let count = 0;
     for (const { characters } of films) {
-      if (characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        count++;
-      }
+      characters.forEach(url => url.includes('18') && count++);
     }
     console.log(count);
   }

@@ -2,7 +2,8 @@
 const request = require('request');
 const argv = process.argv;
 
-request(argv[2], function (_error, response, body) {
+request(argv[2], function (error, response, body) {
+  if (error) { return console.log(error); }
   if (response.statusCode === 200) {
     const films = JSON.parse(body).results;
     const number = films.reduce((acc, { characters }) => {

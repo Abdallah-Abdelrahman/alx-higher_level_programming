@@ -7,10 +7,11 @@ request(argv[2], function (error, response, body) {
   if (response.statusCode === 200) {
     const films = JSON.parse(body).results;
     const number = films.reduce((acc, { characters }) => {
-      return (characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
-        ? acc + 1
-        : acc);
+      if (characters.indexOf('https://swapi-api.alx-tools.com/api/people/18/') >= 0) {
+        acc++;
+      }
+      return acc;
     }, 0);
-    console.log(number.toString());
+    console.log(number);
   }
 });
